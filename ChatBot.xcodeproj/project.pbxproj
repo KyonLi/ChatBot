@@ -73,6 +73,12 @@
 		B76C41DE1B25804E000A2763 /* headImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B76C41CC1B25804E000A2763 /* headImage.jpeg */; };
 		B76C41E41B258060000A2763 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B76C41E11B258060000A2763 /* libmp3lame.a */; };
 		B76C41E51B258060000A2763 /* Mp3Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = B76C41E31B258060000A2763 /* Mp3Recorder.m */; };
+		B76EBDBE1B25A013005CFE98 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B76EBDBC1B25A013005CFE98 /* ChatViewController.m */; };
+		B76EBDBF1B25A013005CFE98 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B76EBDBD1B25A013005CFE98 /* ChatViewController.xib */; };
+		B76EBDC21B25A4E3005CFE98 /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B76EBDC11B25A4E3005CFE98 /* ChatModel.m */; };
+		B76EBDC51B25C4AA005CFE98 /* BotReply.m in Sources */ = {isa = PBXBuildFile; fileRef = B76EBDC41B25C4AA005CFE98 /* BotReply.m */; };
+		B76EBDCB1B25C7C1005CFE98 /* BotReplyList.m in Sources */ = {isa = PBXBuildFile; fileRef = B76EBDCA1B25C7C1005CFE98 /* BotReplyList.m */; };
+		B76EBDCF1B25CD59005CFE98 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B76EBDCE1B25CD59005CFE98 /* NSString+URLEncoding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,6 +198,17 @@
 		B76C41E31B258060000A2763 /* Mp3Recorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3Recorder.m; sourceTree = "<group>"; };
 		B76C41E61B2580E0000A2763 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B76C41E71B25817D000A2763 /* ACMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACMacros.h; sourceTree = "<group>"; };
+		B76EBDBB1B25A013005CFE98 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		B76EBDBC1B25A013005CFE98 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		B76EBDBD1B25A013005CFE98 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		B76EBDC01B25A4E3005CFE98 /* ChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatModel.h; sourceTree = "<group>"; };
+		B76EBDC11B25A4E3005CFE98 /* ChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatModel.m; sourceTree = "<group>"; };
+		B76EBDC31B25C4AA005CFE98 /* BotReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BotReply.h; sourceTree = "<group>"; };
+		B76EBDC41B25C4AA005CFE98 /* BotReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BotReply.m; sourceTree = "<group>"; };
+		B76EBDC91B25C7C1005CFE98 /* BotReplyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BotReplyList.h; sourceTree = "<group>"; };
+		B76EBDCA1B25C7C1005CFE98 /* BotReplyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BotReplyList.m; sourceTree = "<group>"; };
+		B76EBDCD1B25CD59005CFE98 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		B76EBDCE1B25CD59005CFE98 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +273,9 @@
 			children = (
 				B72A64C01B25759C00BD2BAF /* RootTabBarController.h */,
 				B72A64C11B25759C00BD2BAF /* RootTabBarController.m */,
+				B76EBDBB1B25A013005CFE98 /* ChatViewController.h */,
+				B76EBDBC1B25A013005CFE98 /* ChatViewController.m */,
+				B76EBDBD1B25A013005CFE98 /* ChatViewController.xib */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -263,6 +283,12 @@
 		B72A64BA1B2573B100BD2BAF /* M */ = {
 			isa = PBXGroup;
 			children = (
+				B76EBDC01B25A4E3005CFE98 /* ChatModel.h */,
+				B76EBDC11B25A4E3005CFE98 /* ChatModel.m */,
+				B76EBDC31B25C4AA005CFE98 /* BotReply.h */,
+				B76EBDC41B25C4AA005CFE98 /* BotReply.m */,
+				B76EBDC91B25C7C1005CFE98 /* BotReplyList.h */,
+				B76EBDCA1B25C7C1005CFE98 /* BotReplyList.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -299,6 +325,7 @@
 		B72A64BE1B2573B100BD2BAF /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				B76EBDCC1B25CD59005CFE98 /* NSString+URLEncoding */,
 				B76C41E71B25817D000A2763 /* ACMacros.h */,
 				B76C41E61B2580E0000A2763 /* PrefixHeader.pch */,
 				B76C41901B257F43000A2763 /* NSDate+Utils.h */,
@@ -472,6 +499,15 @@
 			path = VoiceLib;
 			sourceTree = "<group>";
 		};
+		B76EBDCC1B25CD59005CFE98 /* NSString+URLEncoding */ = {
+			isa = PBXGroup;
+			children = (
+				B76EBDCD1B25CD59005CFE98 /* NSString+URLEncoding.h */,
+				B76EBDCE1B25CD59005CFE98 /* NSString+URLEncoding.m */,
+			);
+			path = "NSString+URLEncoding";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -548,6 +584,7 @@
 				B76C41D81B25804E000A2763 /* chat_voice_record.png in Resources */,
 				B76C41DE1B25804E000A2763 /* headImage.jpeg in Resources */,
 				B76C41D21B25804E000A2763 /* chat_animation_white3.png in Resources */,
+				B76EBDBF1B25A013005CFE98 /* ChatViewController.xib in Resources */,
 				B76C41D51B25804E000A2763 /* Chat_record_circle.png in Resources */,
 				B76C41CE1B25804E000A2763 /* chat_animation2.png in Resources */,
 				B76C41D71B25804E000A2763 /* Chat_take_picture.png in Resources */,
@@ -587,14 +624,19 @@
 				B76C418E1B257EAC000A2763 /* UUMessageFrame.m in Sources */,
 				B72A64F91B25766800BD2BAF /* UIWebView+AFNetworking.m in Sources */,
 				B72A65001B2576EB00BD2BAF /* DownloadData.m in Sources */,
+				B76EBDBE1B25A013005CFE98 /* ChatViewController.m in Sources */,
 				B76C41881B257EAC000A2763 /* UUAVAudioPlayer.m in Sources */,
 				B76C41B11B257F94000A2763 /* MJRefreshGifHeader.m in Sources */,
 				B72A64FC1B25768000BD2BAF /* AFAppDotNetAPIClient.m in Sources */,
+				B76EBDCF1B25CD59005CFE98 /* NSString+URLEncoding.m in Sources */,
 				B72A64D91B25765600BD2BAF /* AFHTTPSessionManager.m in Sources */,
 				B72A64F41B25766800BD2BAF /* UIAlertView+AFNetworking.m in Sources */,
 				B72A64DD1B25765600BD2BAF /* AFURLRequestSerialization.m in Sources */,
+				B76EBDC21B25A4E3005CFE98 /* ChatModel.m in Sources */,
+				B76EBDC51B25C4AA005CFE98 /* BotReply.m in Sources */,
 				B76C41B71B257F94000A2763 /* UIView+MJExtension.m in Sources */,
 				B76C41B61B257F94000A2763 /* UIScrollView+MJRefresh.m in Sources */,
+				B76EBDCB1B25C7C1005CFE98 /* BotReplyList.m in Sources */,
 				B76C41921B257F43000A2763 /* NSDate+Utils.m in Sources */,
 				B76C41B41B257F94000A2763 /* MJRefreshLegendHeader.m in Sources */,
 				B72A64F21B25766800BD2BAF /* AFNetworkActivityIndicatorManager.m in Sources */,

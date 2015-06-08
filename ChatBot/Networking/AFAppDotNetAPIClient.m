@@ -22,7 +22,7 @@
 
 #import "AFAppDotNetAPIClient.h"
 
-static NSString * const AFAppDotNetAPIBaseURLString = @"https://api.app.net/";
+static NSString * const AFAppDotNetAPIBaseURLString = @"http://www.tuling123.com/openapi/";
 
 @implementation AFAppDotNetAPIClient
 
@@ -32,6 +32,7 @@ static NSString * const AFAppDotNetAPIBaseURLString = @"https://api.app.net/";
     dispatch_once(&onceToken, ^{
         _sharedClient = [[AFAppDotNetAPIClient alloc] initWithBaseURL:[NSURL URLWithString:AFAppDotNetAPIBaseURLString]];
         _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+		_sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
     });
     
     return _sharedClient;
