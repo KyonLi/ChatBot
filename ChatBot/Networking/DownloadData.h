@@ -10,6 +10,6 @@
 @class BotReply;
 
 @interface DownloadData : NSObject
-+ (NSURLSessionDataTask *)getReplyDataWithBlock:(void (^)(BotReply *data, NSError *error))block inputStr:(NSString *)str;
++ (NSURLSessionDataTask *)getReplyDataWithBlock:(void (^)(BotReply *data, NSError *error))block inputStr:(NSString *)str userID:(NSString *)userID;
 
 @end

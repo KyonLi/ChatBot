@@ -8,6 +8,7 @@
 
 #import "RootTabBarController.h"
 #import "ChatViewController.h"
+#import "SettingsTableViewController.h"
 
 @interface RootTabBarController ()
 
@@ -20,11 +21,15 @@
     // Do any additional setup after loading the view.
 	ChatViewController *chatVC = [[ChatViewController alloc] init];
 	UINavigationController *chatNav = [[UINavigationController alloc] initWithRootViewController:chatVC];
-	UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:500];
 	[[chatNav tabBarItem] setTitle:@"聊天"];
-	[chatNav setTabBarItem:tabBarItem];
+	[[chatNav tabBarItem] setImage:[UIImage imageNamed:@"09-chat-2"]];
 	
-	[self setViewControllers:@[chatNav] animated:YES];
+	SettingsTableViewController *settingsVC = [[SettingsTableViewController alloc] init];
+	UINavigationController *settingsNav = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+	[[settingsNav tabBarItem] setTitle:@"设置"];
+	[[settingsNav tabBarItem] setImage:[UIImage imageNamed:@"19-gear"]];
+	
+	[self setViewControllers:@[chatNav, settingsNav] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

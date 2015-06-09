@@ -28,7 +28,8 @@ static NSString *previousTime = nil;
 	NSString *URLStr = @"http://img0.bdstatic.com/img/image/shouye/xinshouye/mingxing16.jpg";
 	[dataDic setObject:@(UUMessageFromMe) forKey:@"from"];
 	[dataDic setObject:[[NSDate date] description] forKey:@"strTime"];
-	[dataDic setObject:@"UserName" forKey:@"strName"];
+	NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
+	[dataDic setObject:userName forKey:@"strName"];
 	[dataDic setObject:URLStr forKey:@"strIcon"];
 	
 	[message setWithDict:dataDic];
@@ -47,7 +48,7 @@ static NSString *previousTime = nil;
 	UUMessage *message = [[UUMessage alloc] init];
 	NSMutableDictionary *dataDic = [NSMutableDictionary dictionaryWithDictionary:dic];
 	
-	NSString *URLStr = @"http://p1.qqyou.com/touxiang/uploadpic/2011-3/20113212244659712.jpg";
+	NSString *URLStr = [[NSBundle mainBundle] pathForResource:@"headImage" ofType:@"jpeg"];
 	[dataDic setObject:@(UUMessageFromOther) forKey:@"from"];
 	[dataDic setObject:[[NSDate date] description] forKey:@"strTime"];
 	[dataDic setObject:@"Bot" forKey:@"strName"];

@@ -23,6 +23,7 @@
 //@property (strong, nonatomic) MJRefreshHeader *head;
 @property (strong, nonatomic) UUInputFunctionView *IFView;
 @property (strong, nonatomic) ChatModel *chatModel;
+@property (strong, nonatomic) NSString *userID;
 
 @end
 
@@ -36,6 +37,17 @@
 	[self initBar];
 //	[self addRefreshViews];
 	[self loadBaseViewsAndData];
+	
+	NSDictionary *dic = @{@"strContent": @"我是XX，很高兴能和你聊天",
+						  @"type": @(UUMessageTypeText)};
+	[self.chatModel addChatRecordFromBot:dic];
+	[self.tableView reloadData];
+	[self tableViewScrollToBottom];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	_userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"userID"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -162,7 +174,7 @@
 				});
 			});
 		}
-	} inputStr:dic[@"strContent"]];
+	} inputStr:dic[@"strContent"] userID:_userID];
 }
 
 - (NSArray *)dealTheReply:(BotReply *)data {
