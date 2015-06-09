@@ -15,6 +15,7 @@
 #import "ChatModel.h"
 #import "DownloadData.h"
 #import "BotReply.h"
+#import "BotReplyList.h"
 
 @interface ChatViewController () <UUInputFunctionViewDelegate,UUMessageCellDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
@@ -65,6 +66,7 @@
 	_IFView = [[UUInputFunctionView alloc]initWithSuperVC:self];
 	_IFView.delegate = self;
 	[_IFView setFrame:CGRectMake(_IFView.frame.origin.x, _IFView.frame.origin.y - 49, _IFView.frame.size.width, _IFView.frame.size.height)];
+	[_IFView changeSendBtnWithPhoto:NO];
 	[self.view addSubview:_IFView];
 	[self.tableView reloadData];
 	[self tableViewScrollToBottom];
@@ -115,11 +117,13 @@
 
 #pragma mark - InputFunctionViewDelegate
 - (void)UUInputFunctionView:(UUInputFunctionView *)funcView sendMessage:(NSString *)message {
-	NSDictionary *dic = @{@"strContent": message,
-						  @"type": @(UUMessageTypeText)};
-	funcView.TextViewInput.text = @"";
-	[funcView changeSendBtnWithPhoto:YES];
-	[self dealTheFunctionData:dic];
+	if (![message isEqualToString:@""]) {
+		NSDictionary *dic = @{@"strContent": message,
+							  @"type": @(UUMessageTypeText)};
+		funcView.TextViewInput.text = @"";
+//		[funcView changeSendBtnWithPhoto:YES];
+		[self dealTheFunctionData:dic];
+	}
 }
 
 - (void)UUInputFunctionView:(UUInputFunctionView *)funcView sendPicture:(UIImage *)image {
@@ -139,14 +143,35 @@
 	[self.chatModel addChatRecordFromMe:dic];
 	[self.tableView reloadData];
 	[self tableViewScrollToBottom];
+	
 	[DownloadData getReplyDataWithBlock:^(BotReply *data, NSError *error) {
-		if (error == nil) {
-			NSDictionary *dic = @{@"strContent": data.text, @"type": @(UUMessageTypeText)};
-			[self.chatModel addChatRecordFromBot:dic];
-			[self.tableView reloadData];
-			[self tableViewScrollToBottom];
+		NSDictionary *replyDic =  [self dealTheReplyToDic:data];
+		[self.chatModel addChatRecordFromBot:replyDic];
+		[self.tableView reloadData];
+		[self tableViewScrollToBottom];
+		
+		if ([data.code integerValue] == 200000) {
+			dispatch_queue_t queue = dispatch_queue_create("com.kyonli.openUrl", DISPATCH_QUEUE_SERIAL);
+			dispatch_async(queue, ^{
+				sleep(2);
+				dispatch_async(dispatch_get_main_queue(), ^{
+					[[UIApplication sharedApplication] openURL:[NSURL URLWithString:data.url]];
+				});
+			});
 		}
 	} inputStr:dic[@"strContent"]];
+}
+
+- (NSDictionary *)dealTheReplyToDic:(BotReply *)data {
+	BotReplyList *botReplyList = [data.dataList firstObject];
+	NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:data.text, @"strContent", @(UUMessageTypeText), @"type", nil];
+	if (botReplyList && botReplyList.detailurl) {
+		[dic addEntriesFromDictionary:@{@"url":[NSURL URLWithString:botReplyList.detailurl]}];
+	}
+	if ([data.code integerValue] == 200000) {
+		[dic addEntriesFromDictionary:@{@"url":[NSURL URLWithString:data.url]}];
+	}
+	return dic;
 }
 
 #pragma mark - tableView delegate & datasource

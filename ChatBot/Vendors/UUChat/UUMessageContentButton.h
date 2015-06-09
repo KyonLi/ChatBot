@@ -20,6 +20,7 @@
 @property (nonatomic, retain) UIActivityIndicatorView *indicator;
 
 @property (nonatomic, assign) BOOL isMyMessage;
+@property (nonatomic, retain) NSURL *url;
 
 
 - (void)benginLoadVoice;

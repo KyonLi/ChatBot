@@ -13,7 +13,7 @@
 
 @implementation DownloadData
 
-+ (NSURLSessionDataTask *)getReplyDataWithBlock:(void (^)(BotReply *, NSError *))block inputStr:(NSString *)str {
++ (NSURLSessionDataTask *)getReplyDataWithBlock:(void (^)(BotReply *data, NSError *error))block inputStr:(NSString *)str {
 	return [[AFAppDotNetAPIClient sharedClient] GET:[NSString stringWithFormat:@"api?key=392e90d77d0b4e05b5bf6c9f6a434815&info=%@&userid=test", [str URLEncodedString]] parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary *responseData) {
 //		NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
 		BotReply *botReply = [[BotReply alloc] initWithDic:responseData];
@@ -22,7 +22,8 @@
 		}
 	} failure:^(NSURLSessionDataTask *task, NSError *error) {
 		NSLog(@"%@", error);
-		BotReply *botReply = [[BotReply alloc] init];
+		NSDictionary *dic = @{@"code":@"100000", @"text":@"网络连接异常，请稍后再试"};
+		BotReply *botReply = [[BotReply alloc] initWithDic:dic];
 		if (block) {
 			block(botReply, error);
 		}

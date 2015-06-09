@@ -90,14 +90,18 @@
 {
     return YES;
 }
+
 -(BOOL)canPerformAction:(SEL)action withSender:(id)sender{
-    return (action == @selector(copy:));
+	return ((action == @selector(copyText:)) || ((action == @selector(openUrl:)) && self.url));
 }
 
--(void)copy:(id)sender{
+-(void)copyText:(id)sender{
     UIPasteboard *pboard = [UIPasteboard generalPasteboard];
     pboard.string = self.titleLabel.text;
 }
 
+-(void)openUrl:(id)sender{
+	[[UIApplication sharedApplication] openURL:self.url];
+}
 
 @end

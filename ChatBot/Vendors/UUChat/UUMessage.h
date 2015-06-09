@@ -11,7 +11,7 @@
 typedef NS_ENUM(NSInteger, MessageType) {
     UUMessageTypeText     = 0 , // 文字
     UUMessageTypePicture  = 1 , // 图片
-    UUMessageTypeVoice    = 2   // 语音
+    UUMessageTypeVoice    = 2 , // 语音
 };
 
 
@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger, MessageFrom) {
 @property (nonatomic, copy) NSString *strName;
 
 @property (nonatomic, copy) NSString *strContent;
+@property (nonatomic, copy) NSURL *url;
 @property (nonatomic, copy) UIImage  *picture;
 @property (nonatomic, copy) NSData   *voice;
 @property (nonatomic, copy) NSString *strVoiceTime;

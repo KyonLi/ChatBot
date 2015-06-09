@@ -79,6 +79,8 @@
 		B76EBDC51B25C4AA005CFE98 /* BotReply.m in Sources */ = {isa = PBXBuildFile; fileRef = B76EBDC41B25C4AA005CFE98 /* BotReply.m */; };
 		B76EBDCB1B25C7C1005CFE98 /* BotReplyList.m in Sources */ = {isa = PBXBuildFile; fileRef = B76EBDCA1B25C7C1005CFE98 /* BotReplyList.m */; };
 		B76EBDCF1B25CD59005CFE98 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B76EBDCE1B25CD59005CFE98 /* NSString+URLEncoding.m */; };
+		B76EBDD31B26B5D9005CFE98 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B76EBDD11B26B5D9005CFE98 /* SettingsTableViewController.m */; };
+		B76EBDD41B26B5D9005CFE98 /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B76EBDD21B26B5D9005CFE98 /* SettingsTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -209,6 +211,9 @@
 		B76EBDCA1B25C7C1005CFE98 /* BotReplyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BotReplyList.m; sourceTree = "<group>"; };
 		B76EBDCD1B25CD59005CFE98 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		B76EBDCE1B25CD59005CFE98 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		B76EBDD01B26B5D8005CFE98 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		B76EBDD11B26B5D9005CFE98 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		B76EBDD21B26B5D9005CFE98 /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +281,9 @@
 				B76EBDBB1B25A013005CFE98 /* ChatViewController.h */,
 				B76EBDBC1B25A013005CFE98 /* ChatViewController.m */,
 				B76EBDBD1B25A013005CFE98 /* ChatViewController.xib */,
+				B76EBDD01B26B5D8005CFE98 /* SettingsTableViewController.h */,
+				B76EBDD11B26B5D9005CFE98 /* SettingsTableViewController.m */,
+				B76EBDD21B26B5D9005CFE98 /* SettingsTableViewController.xib */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -565,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B76EBDD41B26B5D9005CFE98 /* SettingsTableViewController.xib in Resources */,
 				B72A649F1B25728700BD2BAF /* Main.storyboard in Resources */,
 				B76C41DB1B25804E000A2763 /* chatto_bg_normal.png in Resources */,
 				B72A64A41B25728800BD2BAF /* LaunchScreen.xib in Resources */,
@@ -598,6 +607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B76EBDD31B26B5D9005CFE98 /* SettingsTableViewController.m in Sources */,
 				B72A64D71B25765600BD2BAF /* AFHTTPRequestOperation.m in Sources */,
 				B76C41B01B257F94000A2763 /* MJRefreshGifFooter.m in Sources */,
 				B76C41891B257EAC000A2763 /* UUImageAvatarBrowser.m in Sources */,

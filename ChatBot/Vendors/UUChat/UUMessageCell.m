@@ -120,8 +120,11 @@
     else if (self.messageFrame.message.type == UUMessageTypeText)
     {
         [self.btnContent becomeFirstResponder];
+		UIMenuItem *openUrl = [[UIMenuItem alloc] initWithTitle:@"打开链接" action:@selector(openUrl:)];
+		UIMenuItem *copyText = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(copyText:)];
         UIMenuController *menu = [UIMenuController sharedMenuController];
         [menu setTargetRect:self.btnContent.frame inView:self.btnContent.superview];
+		[menu setMenuItems:@[copyText, openUrl]];
         [menu setMenuVisible:YES animated:YES];
     }
 }
@@ -187,6 +190,9 @@
         [self.btnContent setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         self.btnContent.contentEdgeInsets = UIEdgeInsetsMake(ChatContentTop, ChatContentLeft, ChatContentBottom, ChatContentRight);
     }
+	
+	// 5、设置链接
+	self.btnContent.url = message.url;
     
     //背景气泡图
     UIImage *normal;
