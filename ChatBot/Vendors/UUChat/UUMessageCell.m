@@ -158,9 +158,10 @@
     // 2、设置头像
     headImageBackView.frame = messageFrame.iconF;
     self.btnHeadImage.frame = CGRectMake(2, 2, ChatIconWH-4, ChatIconWH-4);
-    [self.btnHeadImage setBackgroundImageForState:UIControlStateNormal
-                                          withURL:[NSURL URLWithString:message.strIcon]
-                                 placeholderImage:[UIImage imageNamed:@"headImage.jpeg"]];
+//    [self.btnHeadImage setBackgroundImageForState:UIControlStateNormal
+//                                          withURL:[NSURL URLWithString:message.strIcon]
+//                                 placeholderImage:[UIImage imageNamed:@"headImage.jpeg"]];
+	[self.btnHeadImage setImage:[UIImage imageWithContentsOfFile:message.strIcon] forState:UIControlStateNormal];
     
     // 3、设置下标
     self.labelNum.text = message.strName;

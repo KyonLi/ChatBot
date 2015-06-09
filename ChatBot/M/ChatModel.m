@@ -25,12 +25,19 @@ static NSString *previousTime = nil;
 	UUMessage *message = [[UUMessage alloc] init];
 	NSMutableDictionary *dataDic = [NSMutableDictionary dictionaryWithDictionary:dic];
 	
-	NSString *URLStr = @"http://img0.bdstatic.com/img/image/shouye/xinshouye/mingxing16.jpg";
+	NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+	NSString *imageFilePath = [documentsDirectory stringByAppendingPathComponent:@"gravatar.jpg"];
+	if ([[NSFileManager defaultManager] fileExistsAtPath:imageFilePath]) {
+		[dataDic setObject:imageFilePath forKey:@"strIcon"];
+	} else {
+		[dataDic setObject:[[NSBundle mainBundle] pathForResource:@"chatfrom_doctor_icon" ofType:@"png"] forKey:@"strIcon"];
+	}
+	
 	[dataDic setObject:@(UUMessageFromMe) forKey:@"from"];
 	[dataDic setObject:[[NSDate date] description] forKey:@"strTime"];
 	NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
 	[dataDic setObject:userName forKey:@"strName"];
-	[dataDic setObject:URLStr forKey:@"strIcon"];
+	
 	
 	[message setWithDict:dataDic];
 	[message minuteOffSetStart:previousTime end:dataDic[@"strTime"]];
