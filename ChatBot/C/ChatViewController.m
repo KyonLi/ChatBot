@@ -144,6 +144,8 @@
 	[self.tableView reloadData];
 	[self tableViewScrollToBottom];
 	
+	NSLog(@"%@", dic[@"strContent"]);
+	
 	[DownloadData getReplyDataWithBlock:^(BotReply *data, NSError *error) {
 		NSDictionary *replyDic =  [self dealTheReplyToDic:data];
 		[self.chatModel addChatRecordFromBot:replyDic];

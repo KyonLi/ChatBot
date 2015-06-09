@@ -77,7 +77,7 @@
         
         //输入框的提示语
         placeHold = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 200, 30)];
-        placeHold.text = @"Input the contents here";
+        placeHold.text = @"在这里输入信息";
         placeHold.textColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.8];
         [self.TextViewInput addSubview:placeHold];
 		
@@ -116,17 +116,17 @@
         [playTimer invalidate];
         playTimer = nil;
     }
-    [UUProgressHUD dismissWithError:@"Cancel"];
+    [UUProgressHUD dismissWithError:@"录音取消"];
 }
 
 - (void)RemindDragExit:(UIButton *)button
 {
-    [UUProgressHUD changeSubTitle:@"Release to cancel"];
+    [UUProgressHUD changeSubTitle:@"松开取消"];
 }
 
 - (void)RemindDragEnter:(UIButton *)button
 {
-    [UUProgressHUD changeSubTitle:@"Slide up to cancel"];
+    [UUProgressHUD changeSubTitle:@"上划取消"];
 }
 
 
@@ -144,7 +144,7 @@
 - (void)endConvertWithData:(NSData *)voiceData
 {
     [self.delegate UUInputFunctionView:self sendVoice:voiceData time:playTime+1];
-    [UUProgressHUD dismissWithSuccess:@"Success"];
+    [UUProgressHUD dismissWithSuccess:@"成功"];
    
     //缓冲消失时间 (最好有block回调消失完成)
     self.btnVoiceRecord.enabled = NO;
@@ -155,7 +155,7 @@
 
 - (void)failRecord
 {
-    [UUProgressHUD dismissWithSuccess:@"Too short"];
+    [UUProgressHUD dismissWithSuccess:@"时间太短"];
     
     //缓冲消失时间 (最好有block回调消失完成)
     self.btnVoiceRecord.enabled = NO;
@@ -210,7 +210,7 @@
 - (void)changeSendBtnWithPhoto:(BOOL)isPhoto
 {
     self.isAbleToSendTextMessage = !isPhoto;
-    [self.btnSendMessage setTitle:isPhoto?@"":@"send" forState:UIControlStateNormal];
+    [self.btnSendMessage setTitle:isPhoto?@"":@"发送" forState:UIControlStateNormal];
     self.btnSendMessage.frame = RECT_CHANGE_width(self.btnSendMessage, isPhoto?30:35);
     UIImage *image = [UIImage imageNamed:isPhoto?@"Chat_take_picture":@"chat_send_message"];
     [self.btnSendMessage setBackgroundImage:image forState:UIControlStateNormal];
@@ -241,7 +241,7 @@
         [self.superVC presentViewController:picker animated:YES completion:^{}];
     }else{
         //如果没有提示用户
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tip" message:@"Your device don't have camera" delegate:nil cancelButtonTitle:@"Sure" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您的设备没有相机" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
         [alert show];
     }
 }

@@ -48,6 +48,9 @@
 {
     NSString *subString = [Str substringWithRange:NSMakeRange(0, 19)];
     NSDate *lastDate = [NSDate dateFromString:subString withFormat:@"yyyy-MM-dd HH:mm:ss"];
+	NSTimeZone *zone = [NSTimeZone systemTimeZone];
+	NSInteger interval = [zone secondsFromGMTForDate:lastDate];
+	lastDate = [lastDate dateByAddingTimeInterval: interval];
     
     NSString *dateStr;  //年月日
     NSString *period;   //时间段
@@ -66,16 +69,16 @@
     
     
     if ([lastDate hour]>=5 && [lastDate hour]<12) {
-        period = @"AM";
+        period = @"上午";
         hour = [NSString stringWithFormat:@"%02d",(int)[lastDate hour]];
     }else if ([lastDate hour]>=12 && [lastDate hour]<=18){
-        period = @"PM";
+        period = @"下午";
         hour = [NSString stringWithFormat:@"%02d",(int)[lastDate hour]-12];
     }else if ([lastDate hour]>18 && [lastDate hour]<=23){
-        period = @"Night";
+        period = @"傍晚";
         hour = [NSString stringWithFormat:@"%02d",(int)[lastDate hour]-12];
     }else{
-        period = @"Dawn";
+        period = @"凌晨";
         hour = [NSString stringWithFormat:@"%02d",(int)[lastDate hour]];
     }
     return [NSString stringWithFormat:@"%@ %@ %@:%02d",dateStr,period,hour,(int)[lastDate minute]];

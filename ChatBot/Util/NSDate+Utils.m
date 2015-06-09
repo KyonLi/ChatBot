@@ -171,7 +171,7 @@
         timeStr = [NSString stringWithFormat:@"%@%@",([self hour] > 12 ? @"下午" : @"上午"),timeStr];
     }
     if (enableSuffix) {
-        timeStr = [NSString stringWithFormat:@"%@%@",([self hour] > 12 ? @"pm" : @"am"),timeStr];
+        timeStr = [NSString stringWithFormat:@"%@%@",([self hour] > 12 ? @"下午" : @"上午"),timeStr];
     }
     return timeStr;
 }
@@ -210,11 +210,11 @@
     NSString *str;
     NSInteger chaDay = [self daysBetweenCurrentDateAndDate];
     if (chaDay == 0) {
-        str = @"Today";
+        str = @"今天";
     }else if (chaDay == 1){
-        str = @"Tomorrow";
+        str = @"明天";
     }else if (chaDay == -1){
-        str = @"Yesterday";
+        str = @"昨天";
     }else{
         str = [self stringYearMonthDay];
     }
