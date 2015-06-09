@@ -144,18 +144,19 @@
 	[self.tableView reloadData];
 	[self tableViewScrollToBottom];
 	
-	NSLog(@"%@", dic[@"strContent"]);
-	
 	[DownloadData getReplyDataWithBlock:^(BotReply *data, NSError *error) {
-		NSDictionary *replyDic =  [self dealTheReplyToDic:data];
-		[self.chatModel addChatRecordFromBot:replyDic];
+//		NSDictionary *replyDic =  [self dealTheReplyToDic:data];
+		NSArray *array = [self dealTheReply:data];
+		for (NSDictionary *replyDic in array) {
+			[self.chatModel addChatRecordFromBot:replyDic];
+		}
 		[self.tableView reloadData];
 		[self tableViewScrollToBottom];
 		
 		if ([data.code integerValue] == 200000) {
 			dispatch_queue_t queue = dispatch_queue_create("com.kyonli.openUrl", DISPATCH_QUEUE_SERIAL);
 			dispatch_async(queue, ^{
-				sleep(2);
+				sleep(1);
 				dispatch_async(dispatch_get_main_queue(), ^{
 					[[UIApplication sharedApplication] openURL:[NSURL URLWithString:data.url]];
 				});
@@ -164,16 +165,36 @@
 	} inputStr:dic[@"strContent"]];
 }
 
-- (NSDictionary *)dealTheReplyToDic:(BotReply *)data {
-	BotReplyList *botReplyList = [data.dataList firstObject];
+- (NSArray *)dealTheReply:(BotReply *)data {
+	NSMutableArray *array = [NSMutableArray new];
+	NSArray *contentData = data.dataList;
 	NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:data.text, @"strContent", @(UUMessageTypeText), @"type", nil];
-	if (botReplyList && botReplyList.detailurl) {
-		[dic addEntriesFromDictionary:@{@"url":[NSURL URLWithString:botReplyList.detailurl]}];
-	}
 	if ([data.code integerValue] == 200000) {
 		[dic addEntriesFromDictionary:@{@"url":[NSURL URLWithString:data.url]}];
 	}
-	return dic;
+	[array addObject:dic];
+	NSInteger code = [data.code integerValue];
+	static NSString *text = nil;
+	for (BotReplyList *botReplyList in contentData) {
+		if (code == 305000) {
+			text = [NSString stringWithFormat:@"车次:%@\n起始站:%@(%@) 到达站:%@(%@)\n详情见: %@", botReplyList.trainnum, botReplyList.start, botReplyList.starttime, botReplyList.terminal, botReplyList.endtime, botReplyList.detailurl];
+		}
+		else if (code == 306000) {
+			text = [NSString stringWithFormat:@"航班:%@(%@)\n%@(%@ - %@)\n详情见: %@", botReplyList.flight, botReplyList.state, botReplyList.route, botReplyList.starttime, botReplyList.endtime, botReplyList.detailurl];
+		}
+		else if (code == 302000) {
+			text = [NSString stringWithFormat:@"%@\n来源:%@ 详情见: %@", botReplyList.article, botReplyList.source, botReplyList.detailurl];
+		}
+		else if (code == 308000) {
+			text = [NSString stringWithFormat:@"%@\n%@\n详情见: %@", botReplyList.name, botReplyList.info, botReplyList.detailurl];
+		}
+		NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:text, @"strContent", @(UUMessageTypeText), @"type", nil];
+		if (botReplyList.detailurl) {
+			[dic setObject:[NSURL URLWithString:botReplyList.detailurl] forKey:@"url"];
+		}
+		[array addObject:dic];
+	}
+	return array;
 }
 
 #pragma mark - tableView delegate & datasource
