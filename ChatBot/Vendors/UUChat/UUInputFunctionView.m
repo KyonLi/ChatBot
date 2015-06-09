@@ -42,32 +42,33 @@
         [self addSubview:self.btnSendMessage];
         
         //改变状态（语音、文字）
-        self.btnChangeVoiceState = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.btnChangeVoiceState.frame = CGRectMake(5, 5, 30, 30);
-        isbeginVoiceRecord = NO;
-        [self.btnChangeVoiceState setBackgroundImage:[UIImage imageNamed:@"chat_voice_record"] forState:UIControlStateNormal];
-        self.btnChangeVoiceState.titleLabel.font = [UIFont systemFontOfSize:12];
-        [self.btnChangeVoiceState addTarget:self action:@selector(voiceRecord:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:self.btnChangeVoiceState];
+//        self.btnChangeVoiceState = [UIButton buttonWithType:UIButtonTypeCustom];
+//        self.btnChangeVoiceState.frame = CGRectMake(5, 5, 30, 30);
+//        isbeginVoiceRecord = NO;
+//        [self.btnChangeVoiceState setBackgroundImage:[UIImage imageNamed:@"chat_voice_record"] forState:UIControlStateNormal];
+//        self.btnChangeVoiceState.titleLabel.font = [UIFont systemFontOfSize:12];
+//        [self.btnChangeVoiceState addTarget:self action:@selector(voiceRecord:) forControlEvents:UIControlEventTouchUpInside];
+//        [self addSubview:self.btnChangeVoiceState];
 
         //语音录入键
-        self.btnVoiceRecord = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.btnVoiceRecord.frame = CGRectMake(70, 5, Main_Screen_Width-70*2, 30);
-        self.btnVoiceRecord.hidden = YES;
-        [self.btnVoiceRecord setBackgroundImage:[UIImage imageNamed:@"chat_message_back"] forState:UIControlStateNormal];
-        [self.btnVoiceRecord setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-        [self.btnVoiceRecord setTitleColor:[[UIColor lightGrayColor] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
-        [self.btnVoiceRecord setTitle:@"按住以说话" forState:UIControlStateNormal];
-        [self.btnVoiceRecord setTitle:@"松开发送" forState:UIControlStateHighlighted];
-        [self.btnVoiceRecord addTarget:self action:@selector(beginRecordVoice:) forControlEvents:UIControlEventTouchDown];
-        [self.btnVoiceRecord addTarget:self action:@selector(endRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
-        [self.btnVoiceRecord addTarget:self action:@selector(cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside | UIControlEventTouchCancel];
-        [self.btnVoiceRecord addTarget:self action:@selector(RemindDragExit:) forControlEvents:UIControlEventTouchDragExit];
-        [self.btnVoiceRecord addTarget:self action:@selector(RemindDragEnter:) forControlEvents:UIControlEventTouchDragEnter];
-        [self addSubview:self.btnVoiceRecord];
-        
+//        self.btnVoiceRecord = [UIButton buttonWithType:UIButtonTypeCustom];
+//        self.btnVoiceRecord.frame = CGRectMake(70, 5, Main_Screen_Width-70*2, 30);
+//        self.btnVoiceRecord.hidden = YES;
+//        [self.btnVoiceRecord setBackgroundImage:[UIImage imageNamed:@"chat_message_back"] forState:UIControlStateNormal];
+//        [self.btnVoiceRecord setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+//        [self.btnVoiceRecord setTitleColor:[[UIColor lightGrayColor] colorWithAlphaComponent:0.5] forState:UIControlStateHighlighted];
+//        [self.btnVoiceRecord setTitle:@"按住以说话" forState:UIControlStateNormal];
+//        [self.btnVoiceRecord setTitle:@"松开发送" forState:UIControlStateHighlighted];
+//        [self.btnVoiceRecord addTarget:self action:@selector(beginRecordVoice:) forControlEvents:UIControlEventTouchDown];
+//        [self.btnVoiceRecord addTarget:self action:@selector(endRecordVoice:) forControlEvents:UIControlEventTouchUpInside];
+//        [self.btnVoiceRecord addTarget:self action:@selector(cancelRecordVoice:) forControlEvents:UIControlEventTouchUpOutside | UIControlEventTouchCancel];
+//        [self.btnVoiceRecord addTarget:self action:@selector(RemindDragExit:) forControlEvents:UIControlEventTouchDragExit];
+//        [self.btnVoiceRecord addTarget:self action:@selector(RemindDragEnter:) forControlEvents:UIControlEventTouchDragEnter];
+//        [self addSubview:self.btnVoiceRecord];
+		
         //输入框
-        self.TextViewInput = [[UITextView alloc]initWithFrame:CGRectMake(45, 5, Main_Screen_Width-2*45, 30)];
+//        self.TextViewInput = [[UITextView alloc]initWithFrame:CGRectMake(45, 5, Main_Screen_Width-2*45, 30)];
+		self.TextViewInput = [[UITextView alloc]initWithFrame:CGRectMake(5, 5, Main_Screen_Width-2*45+40, 30)];
         self.TextViewInput.layer.cornerRadius = 4;
         self.TextViewInput.layer.masksToBounds = YES;
         self.TextViewInput.delegate = self;
