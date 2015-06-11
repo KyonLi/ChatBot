@@ -77,7 +77,7 @@
 	self.chatModel = [[ChatModel alloc]init];
 	_IFView = [[UUInputFunctionView alloc]initWithSuperVC:self];
 	_IFView.delegate = self;
-	[_IFView setFrame:CGRectMake(_IFView.frame.origin.x, _IFView.frame.origin.y - 49 - 64, _IFView.frame.size.width, _IFView.frame.size.height)];
+	[_IFView setFrame:CGRectMake(_IFView.frame.origin.x, _IFView.frame.origin.y - 49, _IFView.frame.size.width, _IFView.frame.size.height)];
 	[_IFView changeSendBtnWithPhoto:NO];
 	[self.view addSubview:_IFView];
 	[self.tableView reloadData];
@@ -110,9 +110,9 @@
 	//adjust UUInputFunctionView's originPoint
 	CGRect newFrame = _IFView.frame;
 	if (notification.name == UIKeyboardWillShowNotification) {
-		newFrame.origin.y = keyboardEndFrame.origin.y - newFrame.size.height - 64;
+		newFrame.origin.y = keyboardEndFrame.origin.y - newFrame.size.height;
 	}else{
-		newFrame.origin.y = keyboardEndFrame.origin.y - newFrame.size.height - 49 - 64;
+		newFrame.origin.y = keyboardEndFrame.origin.y - newFrame.size.height - 49;
 	}
 	_IFView.frame = newFrame;
 	
