@@ -24,6 +24,7 @@
 		[[NSUserDefaults standardUserDefaults] setObject:@"2ac40596" forKey:@"userID"];
 		[[NSUserDefaults standardUserDefaults] synchronize];
 	}
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 	return YES;
 }
 

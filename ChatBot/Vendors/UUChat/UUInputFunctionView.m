@@ -30,7 +30,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         MP3 = [[Mp3Recorder alloc]initWithDelegate:self];
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor colorWithWhite:0.937 alpha:1.000];
         //发送消息
         self.btnSendMessage = [UIButton buttonWithType:UIButtonTypeCustom];
         self.btnSendMessage.frame = CGRectMake(Main_Screen_Width-40, 5, 30, 30);
