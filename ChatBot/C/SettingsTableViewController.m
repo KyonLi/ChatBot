@@ -165,16 +165,6 @@
 	[UIImageJPEGRepresentation(smallImage, 1.0f) writeToFile:imageFilePath atomically:YES];//写入文件
 }
 
-// 改变图像的尺寸，方便上传服务器
-//- (UIImage *) scaleFromImage: (UIImage *) image toSize: (CGSize) size
-//{
-//	UIGraphicsBeginImageContext(size);
-//	[image drawInRect:CGRectMake(0, 0, size.width, size.height)];
-//	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-//	UIGraphicsEndImageContext();
-//	return newImage;
-//}
-
 //2.保持原来的长宽比，生成一个缩略图
 - (UIImage *)thumbnailWithImageWithoutScale:(UIImage *)image size:(CGSize)asize
 {

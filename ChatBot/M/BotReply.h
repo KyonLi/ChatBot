@@ -10,9 +10,9 @@
 
 @interface BotReply : NSObject
 @property (nonatomic, retain, readonly) NSNumber *code;
-@property (nonatomic, retain, readonly) NSString *text;
-@property (nonatomic, retain, readonly) NSString *url;
-@property (nonatomic, retain, readonly) NSMutableArray *dataList;
+@property (nonatomic, copy, readonly) NSString *text;
+@property (nonatomic, copy, readonly) NSString *url;
+@property (nonatomic, readonly) NSMutableArray *dataList;
 
 - (instancetype)initWithDic:(NSDictionary *)dic;
 
