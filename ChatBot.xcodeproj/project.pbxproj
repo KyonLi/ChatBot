@@ -64,6 +64,7 @@
 		B76EBDD31B26B5D9005CFE98 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B76EBDD11B26B5D9005CFE98 /* SettingsTableViewController.m */; };
 		B76EBDD41B26B5D9005CFE98 /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B76EBDD21B26B5D9005CFE98 /* SettingsTableViewController.xib */; };
 		B76EBDDA1B26E2C9005CFE98 /* NSData+CRC.m in Sources */ = {isa = PBXBuildFile; fileRef = B76EBDD91B26E2C9005CFE98 /* NSData+CRC.m */; };
+		B7B74A6D1B39648C005EFA39 /* LaunchScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7B74A6C1B39648C005EFA39 /* LaunchScreen.jpg */; };
 		B7FEB1011B3908E900F98BA6 /* 09-chat-2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7FEB0ED1B3908E900F98BA6 /* 09-chat-2.png */; };
 		B7FEB1021B3908E900F98BA6 /* 09-chat-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B7FEB0EE1B3908E900F98BA6 /* 09-chat-2@2x.png */; };
 		B7FEB1031B3908E900F98BA6 /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = B7FEB0EF1B3908E900F98BA6 /* 19-gear.png */; };
@@ -203,6 +204,7 @@
 		B76EBDD21B26B5D9005CFE98 /* SettingsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
 		B76EBDD81B26E2C9005CFE98 /* NSData+CRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CRC.h"; sourceTree = "<group>"; };
 		B76EBDD91B26E2C9005CFE98 /* NSData+CRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CRC.m"; sourceTree = "<group>"; };
+		B7B74A6C1B39648C005EFA39 /* LaunchScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchScreen.jpg; sourceTree = "<group>"; };
 		B7FEB0ED1B3908E900F98BA6 /* 09-chat-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "09-chat-2.png"; sourceTree = "<group>"; };
 		B7FEB0EE1B3908E900F98BA6 /* 09-chat-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "09-chat-2@2x.png"; sourceTree = "<group>"; };
 		B7FEB0EF1B3908E900F98BA6 /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 		B72A64BD1B2573B100BD2BAF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B7B74A6C1B39648C005EFA39 /* LaunchScreen.jpg */,
 				B7FEB1151B39091400F98BA6 /* icon.png */,
 				B7FEB0ED1B3908E900F98BA6 /* 09-chat-2.png */,
 				B7FEB0EE1B3908E900F98BA6 /* 09-chat-2@2x.png */,
@@ -594,6 +597,7 @@
 				B7FEB10F1B3908E900F98BA6 /* Chat_take_picture.png in Resources */,
 				B7FEB10A1B3908E900F98BA6 /* chat_animation3.png in Resources */,
 				B7FEB1101B3908E900F98BA6 /* chat_voice_record.png in Resources */,
+				B7B74A6D1B39648C005EFA39 /* LaunchScreen.jpg in Resources */,
 				B7FEB1091B3908E900F98BA6 /* chat_animation2.png in Resources */,
 				B72A64A41B25728800BD2BAF /* LaunchScreen.xib in Resources */,
 				B7FEB1121B3908E900F98BA6 /* chatfrom_doctor_icon.png in Resources */,
@@ -725,7 +729,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "39e87f0f-814f-4f66-8387-124f59625a62";
@@ -764,7 +768,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "39e87f0f-814f-4f66-8387-124f59625a62";
 				SDKROOT = iphoneos;
