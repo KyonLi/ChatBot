@@ -31,7 +31,7 @@
 	
 	[self setViewControllers:@[chatNav, settingsNav] animated:YES];
 	
-	[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.247 green:0.592 blue:0.239 alpha:1.000]];
+	[[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
 	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 	NSShadow *shadow = [[NSShadow alloc] init];
 	shadow.shadowColor = [UIColor clearColor];

@@ -21,9 +21,10 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 //@property (strong, nonatomic) MJRefreshHeader *head;
-@property (strong, nonatomic) UUInputFunctionView *IFView;
-@property (strong, nonatomic) ChatModel *chatModel;
-@property (strong, nonatomic) NSString *userID;
+@property (nonatomic) UUInputFunctionView *IFView;
+@property (nonatomic) ChatModel *chatModel;
+@property (nonatomic) NSString *userID;
+@property (nonatomic) UISegmentedControl *segmentedControl;
 
 @end
 
@@ -38,7 +39,7 @@
 //	[self addRefreshViews];
 	[self loadBaseViewsAndData];
 	
-	NSDictionary *dic = @{@"strContent": @"我是XX，很高兴能和你聊天",
+	NSDictionary *dic = @{@"strContent": @"我是金莲，很高兴能和你聊天",
 						  @"type": @(UUMessageTypeText)};
 	[self.chatModel addChatRecordFromBot:dic];
 	[self.tableView reloadData];
@@ -157,7 +158,6 @@
 	[self tableViewScrollToBottom];
 	
 	[DownloadData getReplyDataWithBlock:^(BotReply *data, NSError *error) {
-//		NSDictionary *replyDic =  [self dealTheReplyToDic:data];
 		NSArray *array = [self dealTheReply:data];
 		for (NSDictionary *replyDic in array) {
 			[self.chatModel addChatRecordFromBot:replyDic];
