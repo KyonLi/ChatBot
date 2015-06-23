@@ -10,6 +10,6 @@
 @class BotReply;
 
 @interface DownloadData : NSObject
-+ (NSURLSessionDataTask *)getReplyDataWithBlock:(void (^)(BotReply *data, NSError *error))block inputStr:(NSString *)str userID:(NSString *)userID;
++ (NSURLSessionDataTask *)getReplyDataWithBlock:(void (^)(BotReply *data, NSError *error))block inputStr:(NSString *)str userID:(NSString *)userID location:(NSString *)loc longitude:(NSString *)lon latitude:(NSString *)lat;
 
 @end

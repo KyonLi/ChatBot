@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface BotReply : NSObject
-@property (nonatomic, retain, readonly) NSNumber *code;
-@property (nonatomic, copy, readonly) NSString *text;
-@property (nonatomic, copy, readonly) NSString *url;
+@property (nonatomic, readonly) NSNumber *code;
+@property (nonatomic, readonly) NSString *text;
+@property (nonatomic, readonly) NSString *url;
 @property (nonatomic, readonly) NSMutableArray *dataList;
 
 - (instancetype)initWithDic:(NSDictionary *)dic;

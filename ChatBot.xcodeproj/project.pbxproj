@@ -85,6 +85,7 @@
 		B7FEB1131B3908E900F98BA6 /* chatto_bg_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = B7FEB0FF1B3908E900F98BA6 /* chatto_bg_normal.png */; };
 		B7FEB1141B3908E900F98BA6 /* headImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B7FEB1001B3908E900F98BA6 /* headImage.jpeg */; };
 		B7FEB1161B39091400F98BA6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B7FEB1151B39091400F98BA6 /* icon.png */; };
+		B7FEB1181B39337B00F98BA6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FEB1171B39337A00F98BA6 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -223,6 +224,7 @@
 		B7FEB0FF1B3908E900F98BA6 /* chatto_bg_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatto_bg_normal.png; sourceTree = "<group>"; };
 		B7FEB1001B3908E900F98BA6 /* headImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = headImage.jpeg; sourceTree = "<group>"; };
 		B7FEB1151B39091400F98BA6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		B7FEB1171B39337A00F98BA6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7FEB1181B39337B00F98BA6 /* CoreLocation.framework in Frameworks */,
 				B76C41E41B258060000A2763 /* libmp3lame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,6 +243,7 @@
 		B72A64871B25728700BD2BAF = {
 			isa = PBXGroup;
 			children = (
+				B7FEB1171B39337A00F98BA6 /* CoreLocation.framework */,
 				B72A64921B25728700BD2BAF /* ChatBot */,
 				B72A64911B25728700BD2BAF /* Products */,
 			);

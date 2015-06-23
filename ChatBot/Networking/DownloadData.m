@@ -13,8 +13,9 @@
 
 @implementation DownloadData
 
-+ (NSURLSessionDataTask *)getReplyDataWithBlock:(void (^)(BotReply *data, NSError *error))block inputStr:(NSString *)str userID:(NSString *)userID {
-	return [[AFAppDotNetAPIClient sharedClient] GET:[NSString stringWithFormat:@"api?key=392e90d77d0b4e05b5bf6c9f6a434815&info=%@&userid=%@", [str URLEncodedString], userID] parameters:nil success:^(NSURLSessionDataTask *task, NSDictionary *responseData) {
++ (NSURLSessionDataTask *)getReplyDataWithBlock:(void (^)(BotReply *data, NSError *error))block inputStr:(NSString *)str userID:(NSString *)userID location:(NSString *)loc longitude:(NSString *)lon latitude:(NSString *)lat {
+	NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:@"392e90d77d0b4e05b5bf6c9f6a434815", @"key", str, @"info", userID, @"userid", loc, @"loc", lon, @"lon", lat, @"lat", nil];
+	return [[AFAppDotNetAPIClient sharedClient] GET:@"api" parameters:parameters success:^(NSURLSessionDataTask *task, NSDictionary *responseData) {
 //		NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
 		BotReply *botReply = [[BotReply alloc] initWithDic:responseData];
 		if (block) {

@@ -13,6 +13,7 @@
 - (instancetype)initWithDic:(NSDictionary *)dic {
 	if (self = [super init]) {
 		[self setValuesForKeysWithDictionary:dic];
+		_info = [[self info] stringByReplacingOccurrencesOfString:@"<br>" withString:@""];
 	}
 	return self;
 }

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 Kyon Li. All rights reserved.
 //
 
+#import <CoreLocation/CoreLocation.h>
 #import "ChatViewController.h"
 #import "UUInputFunctionView.h"
 //#import "MJRefresh.h"
@@ -17,14 +18,16 @@
 #import "BotReply.h"
 #import "BotReplyList.h"
 
-@interface ChatViewController () <UUInputFunctionViewDelegate,UUMessageCellDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface ChatViewController () <UUInputFunctionViewDelegate,UUMessageCellDelegate,UITableViewDataSource,UITableViewDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 //@property (strong, nonatomic) MJRefreshHeader *head;
 @property (nonatomic) UUInputFunctionView *IFView;
 @property (nonatomic) ChatModel *chatModel;
 @property (nonatomic) NSString *userID;
-@property (nonatomic) UISegmentedControl *segmentedControl;
+@property (nonatomic) CLLocationManager *locationManager;
+@property (nonatomic) NSString *lon;
+@property (nonatomic) NSString *lat;
 
 @end
 
@@ -44,6 +47,13 @@
 	[self.chatModel addChatRecordFromBot:dic];
 	[self.tableView reloadData];
 	[self tableViewScrollToBottom];
+	
+	[self setLocationManager:[[CLLocationManager alloc] init]];
+	[_locationManager setDelegate:self];
+	[_locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+	[_locationManager setDistanceFilter:200];
+	[_locationManager requestAlwaysAuthorization];
+	[_locationManager startUpdatingLocation];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -174,7 +184,7 @@
 				});
 			});
 		}
-	} inputStr:dic[@"strContent"] userID:_userID];
+	} inputStr:dic[@"strContent"] userID:_userID location:@"" longitude:_lon latitude:_lat];
 }
 
 - (NSArray *)dealTheReply:(BotReply *)data {
@@ -245,6 +255,42 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+	switch (status) {
+		case kCLAuthorizationStatusNotDetermined:
+			if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])
+			{
+				[self.locationManager requestWhenInUseAuthorization];
+			}
+			break;
+		default:
+			break;
+	}
+}
 
+//协议中的方法，作用是每当位置发生更新时会调用的委托方法
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+	//结构体，存储位置坐标
+	CLLocationCoordinate2D loc = [newLocation coordinate];
+	NSString *longitude = [NSString stringWithFormat:@"%lf", loc.longitude];
+	NSString *latitude = [NSString stringWithFormat:@"%lf", loc.latitude];
+	NSString *lon = [longitude stringByReplacingOccurrencesOfString:@"." withString:@""];
+	NSString *lat = [latitude stringByReplacingOccurrencesOfString:@"." withString:@""];
+	[self setLon:lon];
+	[self setLat:lat];
+}
+
+//当位置获取或更新失败会调用的方法
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+	NSString *errorMsg = nil;
+	if ([error code] == kCLErrorDenied) {
+		errorMsg = @"访问被拒绝";
+	}
+	if ([error code] == kCLErrorLocationUnknown) {
+		errorMsg = @"获取位置信息失败";
+	}
+}
 
 @end

@@ -15,7 +15,7 @@
 	if (self = [super init]) {
 		_dataList = [NSMutableArray new];
 		[self setValuesForKeysWithDictionary:dic];
-		
+		_text = [[self text] stringByReplacingOccurrencesOfString:@"<br>" withString:@""];
 	}
 	return self;
 }
