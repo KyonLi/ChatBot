@@ -120,7 +120,7 @@ static unsigned long crc32tab[] = {
 	// The String "123456789" results in the CRC 0x31C3
 	// The byte sequence 0x706A77 results in the CRC 0x3299
 	const void *buffer = [self bytes];
-	unsigned length = [self length];
+	unsigned long length = [self length];
 	register unsigned char *p = (unsigned char *)buffer;
 	register unsigned int crc = 0;
 	
@@ -135,7 +135,7 @@ static unsigned long crc32tab[] = {
 	// This is the commonly used CRC-32 algorithm, used by Ethernet, PKZIP and others
 	// The String "123456789" results in the CRC 0xCBF43926
 	const void *buffer = [self bytes];
-	unsigned length = [self length];
+	unsigned long length = [self length];
 	register unsigned long crc = 0xFFFFFFFFL;
 	register unsigned char *p = (unsigned char *)buffer;
 	
@@ -216,7 +216,7 @@ static BOOL hashTablesInitialized = NO;
 - (unsigned long long)crc64
 {
 	const void *buffer = [self bytes];
-	unsigned length = [self length];
+	unsigned long length = [self length];
 	if (!hashTablesInitialized) {
 		// (re)build the table for 64 bit width
 		inithashLL();
