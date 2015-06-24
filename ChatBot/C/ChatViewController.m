@@ -42,7 +42,7 @@
 //	[self addRefreshViews];
 	[self loadBaseViewsAndData];
 	
-	NSDictionary *dic = @{@"strContent": @"我是金莲，很高兴能和你聊天",
+	NSDictionary *dic = @{@"strContent": @"我是小小m，很高兴能和你聊天",
 						  @"type": @(UUMessageTypeText)};
 	[self.chatModel addChatRecordFromBot:dic];
 	[self.tableView reloadData];

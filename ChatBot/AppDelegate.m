@@ -18,8 +18,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
 	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"userID"] == nil) {
-		NSLog(@"%s", __func__);
-		NSLog(@"初始化偏好设置");
+//		NSLog(@"%s", __func__);
+//		NSLog(@"初始化偏好设置");
 		[[NSUserDefaults standardUserDefaults] setObject:@"我还没有名字" forKey:@"userName"];
 		[[NSUserDefaults standardUserDefaults] setObject:@"2ac40596" forKey:@"userID"];
 		[[NSUserDefaults standardUserDefaults] synchronize];

@@ -22,7 +22,7 @@
 			block(botReply, nil);
 		}
 	} failure:^(NSURLSessionDataTask *task, NSError *error) {
-		NSLog(@"%@", error);
+//		NSLog(@"%@", error);
 		NSDictionary *dic = @{@"code":@"100000", @"text":@"网络连接异常，请稍后再试"};
 		BotReply *botReply = [[BotReply alloc] initWithDic:dic];
 		if (block) {

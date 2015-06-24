@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+	[[self navigationItem] setTitle:@"设置"];
 	_alertView = [[UIAlertView alloc] initWithTitle:@"请输入昵称" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
 	[_alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
 	[[self tableView] addSubview:_alertView];
@@ -84,10 +84,10 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 1) {
-		NSLog(@"%@", [[alertView textFieldAtIndex:0] text]);
+//		NSLog(@"%@", [[alertView textFieldAtIndex:0] text]);
 		NSData *data = [[[alertView textFieldAtIndex:0] text] dataUsingEncoding:NSUTF8StringEncoding];
 		NSString *userID = [NSString stringWithFormat:@"%x", [data crc16]];
-		NSLog(@"%@", userID);
+//		NSLog(@"%@", userID);
 		[[NSUserDefaults standardUserDefaults] setObject:[[alertView textFieldAtIndex:0] text] forKey:@"userName"];
 		[[NSUserDefaults standardUserDefaults] setObject:userID forKey:@"userID"];
 	}
@@ -162,7 +162,7 @@
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	NSString *imageFilePath = [documentsDirectory stringByAppendingPathComponent:@"gravatar.jpg"];
-	NSLog(@"imageFile->>%@",imageFilePath);
+//	NSLog(@"imageFile->>%@",imageFilePath);
 	success = [fileManager fileExistsAtPath:imageFilePath];
 	if(success) {
 		success = [fileManager removeItemAtPath:imageFilePath error:&error];

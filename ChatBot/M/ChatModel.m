@@ -58,7 +58,7 @@ static NSString *previousTime = nil;
 	NSString *URLStr = [[NSBundle mainBundle] pathForResource:@"headImage" ofType:@"jpeg"];
 	[dataDic setObject:@(UUMessageFromOther) forKey:@"from"];
 	[dataDic setObject:[[NSDate date] description] forKey:@"strTime"];
-	[dataDic setObject:@"Bot" forKey:@"strName"];
+	[dataDic setObject:@"小小m" forKey:@"strName"];
 	[dataDic setObject:URLStr forKey:@"strIcon"];
 	
 	[message setWithDict:dataDic];

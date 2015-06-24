@@ -245,11 +245,11 @@
 -(void)sensorStateChange:(NSNotificationCenter *)notification;
 {
     if ([[UIDevice currentDevice] proximityState] == YES){
-        NSLog(@"Device is close to user");
+//        NSLog(@"Device is close to user");
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     }
     else{
-        NSLog(@"Device is not close to user");
+//        NSLog(@"Device is not close to user");
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     }
 }
