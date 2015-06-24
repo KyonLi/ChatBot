@@ -71,6 +71,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+	[cell setSelected:NO animated:YES];
 	if (indexPath.row == 0) {
 		[_alertView show];
 	}
@@ -81,12 +83,14 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	NSLog(@"%@", [[alertView textFieldAtIndex:0] text]);
-	NSData *data = [[[alertView textFieldAtIndex:0] text] dataUsingEncoding:NSUTF8StringEncoding];
-	NSString *userID = [NSString stringWithFormat:@"%x", [data crc16]];
-	NSLog(@"%@", userID);
-	[[NSUserDefaults standardUserDefaults] setObject:[[alertView textFieldAtIndex:0] text] forKey:@"userName"];
-	[[NSUserDefaults standardUserDefaults] setObject:userID forKey:@"userID"];
+	if (buttonIndex == 1) {
+		NSLog(@"%@", [[alertView textFieldAtIndex:0] text]);
+		NSData *data = [[[alertView textFieldAtIndex:0] text] dataUsingEncoding:NSUTF8StringEncoding];
+		NSString *userID = [NSString stringWithFormat:@"%x", [data crc16]];
+		NSLog(@"%@", userID);
+		[[NSUserDefaults standardUserDefaults] setObject:[[alertView textFieldAtIndex:0] text] forKey:@"userName"];
+		[[NSUserDefaults standardUserDefaults] setObject:userID forKey:@"userID"];
+	}
 }
 
 
@@ -97,12 +101,17 @@
 	switch (buttonIndex) {
 		case 0://照相机
 		{
-			UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-			imagePicker.delegate = self;
-			imagePicker.allowsEditing = YES;
-			imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-			//            [self presentModalViewController:imagePicker animated:YES];
-			[self presentViewController:imagePicker animated:YES completion:nil];
+			if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+				UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+				imagePicker.delegate = self;
+				imagePicker.allowsEditing = YES;
+				imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+				[self presentViewController:imagePicker animated:YES completion:nil];
+			} else {
+				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误" message:@"没有检测到摄像头" delegate:nil cancelButtonTitle:@"返回" otherButtonTitles:nil];
+				[alert show];
+			}
+			
 		}
 			break;
 		case 1://本地相簿
@@ -111,7 +120,6 @@
 			imagePicker.delegate = self;
 			imagePicker.allowsEditing = YES;
 			imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-			//            [self presentModalViewController:imagePicker animated:YES];
 			[self presentViewController:imagePicker animated:YES completion:nil];
 		}
 			break;
@@ -137,13 +145,11 @@
 {
 	UIImage *img = [info objectForKey:UIImagePickerControllerEditedImage];
 	[self performSelector:@selector(saveImage:)  withObject:img afterDelay:0.5];
-	//    [picker dismissModalViewControllerAnimated:YES];
 	[picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-	//    [picker dismissModalViewControllerAnimated:YES];
 	[picker dismissViewControllerAnimated:YES completion:nil];
 }
 

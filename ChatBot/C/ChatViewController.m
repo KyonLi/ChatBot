@@ -246,8 +246,6 @@
 #pragma mark - cellDelegate
 - (void)headImageDidClick:(UUMessageCell *)cell userId:(NSString *)userId{
 	// headIamgeIcon is clicked
-	UIAlertView *alert = [[UIAlertView alloc]initWithTitle:cell.messageFrame.message.strName message:@"headImage clicked" delegate:nil cancelButtonTitle:@"sure" otherButtonTitles:nil];
-	[alert show];
 }
 
 - (void)didReceiveMemoryWarning {
