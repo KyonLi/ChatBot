@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"userID"] == nil) {
 //		NSLog(@"%s", __func__);
 //		NSLog(@"初始化偏好设置");
@@ -24,7 +25,6 @@
 		[[NSUserDefaults standardUserDefaults] setObject:@"2ac40596" forKey:@"userID"];
 		[[NSUserDefaults standardUserDefaults] synchronize];
 	}
-	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 	return YES;
 }
 
